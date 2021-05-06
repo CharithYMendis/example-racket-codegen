@@ -1,14 +1,11 @@
 #lang rosette
 
-(define (pow x y)
-  (if (> y 0)
-      (* x (pow x (- y 1)))
-      1))
+;; The toy language has 2 operators, namely `mul` and `add`. Both have their usual meanings.
 
-(define (shift x y)
-  (arithmetic-shift x y))
+(provide mul add)
 
-(define-symbolic y integer?)
+(define (mul x y)
+  (* x y))
 
-(assert (>= y 0))
-(verify (assert (= (pow 2 y) (shift 1 y))))
+(define (add x y)
+  (+ x y))
